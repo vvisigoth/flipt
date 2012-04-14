@@ -1,3 +1,9 @@
+import os
+import django
+
+DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+
 # Django settings for flipt project.
 
 DEBUG = True
@@ -102,7 +108,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'flipt.urls'
 
-TEMPLATE_DIRS = (
+TEMPLATE_DIRS = (os.path.join(SITE_ROOT, 'templates'), os.path.join(SITE_ROOT, 'templates/forum'), os.path.join(SITE_ROOT, 'templates/registration'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
