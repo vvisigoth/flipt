@@ -5,6 +5,15 @@ DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 # Django settings for flipt project.
+#TODO there needs to be some email settings in this file. getting an error on confirm email
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+EMAIL_HOST_USER = 'anthonyarr@gmail.com'
+EMAIL_HOST_PASSWORD = 'RedeCorreio3.'
+
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -129,6 +138,9 @@ INSTALLED_APPS = (
 
     # 'django.contrib.admindocs',
 )
+
+#This is a necessary settings for django-registration!!
+ACCOUNT_ACTIVATION_DAYS = 7
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
