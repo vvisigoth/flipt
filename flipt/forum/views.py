@@ -1,5 +1,5 @@
 from string import join
-
+from PIL import Image as PImage
 from os.path import join as pjoin
 
 from django.contrib.auth.decorators import login_required
