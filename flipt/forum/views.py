@@ -76,7 +76,7 @@ def profile(request, pk):
 @login_required
 def post(request, ptype, pk):
     """Display a post form."""
-    action = reverse("dbe.forum.views.%s" % ptype, args=[pk])
+    action = reverse("flipt.forum.views.%s" % ptype, args=[pk])
     if ptype == "new_thread":
         title = "Start New Topic"
         subject = ''
@@ -101,7 +101,7 @@ def new_thread(request, pk):
         thread = Thread.objects.create(forum=forum, title=p["subject"], creator=request.user)
         Post.objects.create(thread=thread, title=p["subject"], body=p["body"], creator=request.user)
         increment_post_counter(request)
-    return HttpResponseRedirect(reverse("dbe.forum.views.forum", args=[pk]))
+    return HttpResponseRedirect(reverse("flipt.forum.views.forum", args=[pk]))
 
 @login_required
 def reply(request, pk):
@@ -111,7 +111,7 @@ def reply(request, pk):
         thread = Thread.objects.get(pk=pk)
         post = Post.objects.create(thread=thread, title=p["subject"], body=p["body"], creator=request.user)
         increment_post_counter(request)
-    return HttpResponseRedirect(reverse("dbe.forum.views.thread", args=[pk]) + "?page=last")
+    return HttpResponseRedirect(reverse("flipt.forum.views.thread", args=[pk]) + "?page=last")
 
 
 def add_csrf(request, **kwargs):
