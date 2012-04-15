@@ -76,6 +76,7 @@ def profile(request, pk):
 @login_required
 def post(request, ptype, pk):
     """Display a post form."""
+    #TODO This reverse is throwing errors possibly becuase it doesn't match base URLConf
     action = reverse("flipt.forum.views.%s" % ptype, args=[pk])
     if ptype == "new_thread":
         title = "Start New Topic"
@@ -101,6 +102,7 @@ def new_thread(request, pk):
         thread = Thread.objects.create(forum=forum, title=p["subject"], creator=request.user)
         Post.objects.create(thread=thread, title=p["subject"], body=p["body"], creator=request.user)
         increment_post_counter(request)
+    #TODO Throwing errors, fix reverse
     return HttpResponseRedirect(reverse("flipt.forum.views.forum", args=[pk]))
 
 @login_required
@@ -111,6 +113,7 @@ def reply(request, pk):
         thread = Thread.objects.get(pk=pk)
         post = Post.objects.create(thread=thread, title=p["subject"], body=p["body"], creator=request.user)
         increment_post_counter(request)
+    #TODO fix this reverse, too
     return HttpResponseRedirect(reverse("flipt.forum.views.thread", args=[pk]) + "?page=last")
 
 
