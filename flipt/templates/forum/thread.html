@@ -37,7 +37,6 @@
             <!-- Posts  -->
             {% for post in posts.object_list %}
                 <div class="post">
-
                     <div class="ppic">
                         {% with post.profile_data as pdata %}
                             {% if pdata.1 %}
@@ -48,7 +47,6 @@
                         Joined: {{ post.creator.date_joined|date:"M d Y" }}
                         {% endwith %}
                     </div>
-
                     <span class="title">{{ post.title }}</span><br />
                     by {{ post.creator }} | <span class="date">{{ post.created }}</span> <br /><br />
 
