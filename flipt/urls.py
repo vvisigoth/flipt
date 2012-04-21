@@ -5,6 +5,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
 	url(r'^forum/', include('forum.urls')),
+	url(r'^theater/', 'theater.views.index'),
 	url(r'^admin/', include(admin.site.urls)),
 	(r'^accounts/', include('registration.urls')),
 )
