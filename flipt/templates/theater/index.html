@@ -1,2 +1,9 @@
-WELCOME TO THE THEATER ,DUMMY
-{{ playlist }}
+<ul>
+{% for vid in playlist %}
+<li>{{ vid.0 }}</li>
+<li>{{ vid.1 }}</li>
+
+{% endfor %}
+</ul>
+
+
