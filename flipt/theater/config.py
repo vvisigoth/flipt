@@ -1,1 +1,1 @@
-playlist = [('Title 1', 'embed code 1'), ('Title 2', 'embed code 2'), ('Title 3', 'embed code 3')]
+playlist = [('Intro to Max', 'http://blip.tv/play/h5YhgvSwKgA.html?p=1'), ('MultiBand Comp', 'http://blip.tv/play/h5YhgvL%2BYwA.html'), ('Generative Music', 'http://blip.tv/play/h5YhgvPqbQA.html')]

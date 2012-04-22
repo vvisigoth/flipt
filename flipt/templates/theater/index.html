@@ -1,7 +1,8 @@
+<iframe name="coursevid" width="480" height="336" frameborder=0></iframe>
+
 <ul>
 {% for vid in playlist %}
-<li>{{ vid.0 }}</li>
-<li>{{ vid.1 }}</li>
+<li><a href="{{ vid.1 }}" target="coursevid">{{ vid.0 }}</li>
 
 {% endfor %}
 </ul>
