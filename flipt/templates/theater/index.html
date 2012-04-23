@@ -1,10 +1,42 @@
-<iframe name="coursevid" width="480" height="336" frameborder=0></iframe>
+<html>
+	
+<body>
+
+	<iframe name="coursevid" width="480" height="336" frameborder=0 src="{{ playlist.0.1 }}"></iframe>
+	<!-- EXAMPLE OF HOW TO SEND ID TO FUNCTION ON CLICK <h1 id="header" onclick="javascript:displayId(this.id);" > Click Here</h1>	-->
+	<ul id="sidemenu">
+	{% for vid in playlist %}
+		<li><a href="{{ vid.1 }}" target="coursevid">{{ vid.0 }}</a>
+		</li>
+
+	{% endfor %}
+	</ul>
 
 <ul>
-{% for vid in playlist %}
-<li><a href="{{ vid.1 }}" target="coursevid">{{ vid.0 }}</li>
-
-{% endfor %}
+	<li><a href="" id="previous" target="coursevid">Previous</a></li>
+	<li><a href="{{ playlist.1.1 }}" id="next" target="coursevid">Next</a></li>
 </ul>
-
-
+</body>
+<script type="text/javascript">
+	var plist = document.getElementById("sidemenu");
+	var playArray = plist.getElementsByTagName("a");
+	var i = 0;
+	var pArray = [];
+	while (i < playArray.length){
+		if (playArray[i].getAttribute("href") in pArray){
+			continue;
+		}
+		else {
+		pArray[i] = playArray[i].getAttribute("href");
+		i ++;
+		}
+	}
+<!-- TODO onclick, get the id and parseInt back to index num  from the link clicked and reassign the previous and next by indexing the pArray --> 
+	function displayId(id){
+		console.log(id);
+	}
+	console.log(playArray);
+	console.log(pArray);
+	
+</script>
+</html>

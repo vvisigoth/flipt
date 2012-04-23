@@ -6,6 +6,7 @@ import re
 # Create your views here.
 
 def index(request):
+  #make some logic here (or config) that will be smart about getting the raw ur
   #plist = []
   #for i in playlist:
     #ifrm_guts = re.findall(r'(src ?= ?")(\S+)(")', i)
