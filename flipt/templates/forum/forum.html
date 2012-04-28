@@ -70,6 +70,22 @@
         </div>
         {% endif %}
 
+
+<link type="text/css" rel="stylesheet" href="/static/js/autocomplete.css">
+		<script type="text/javascript" src="/static/js/jquery.js"></script>
+		<script type="text/javascript" src="/static/js/autocomplete.js"></script>
+		{% block extra_css %}{% endblock extra_css %}
+		<title>{% block title %} Forum Search {% endblock %}</title>
+		<script type = "text/javascript" >
+			$(function(){
+				setAutoComplete("postSearchField", "postResults", "/lookup/?query=");
+			});
+</script>
+		{% block body %}
+			<label for="postSearchField">Post: </label>
+			<input type="text" id="postSearchField" name="postSearchField">
+		{% endblock body %}
+
     </div>
 
 {% endblock %}

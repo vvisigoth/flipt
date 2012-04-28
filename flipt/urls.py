@@ -8,6 +8,7 @@ urlpatterns = patterns('',
 	url(r'^theater/', 'theater.views.index'),
 	url(r'^admin/', include(admin.site.urls)),
 	(r'^accounts/', include('registration.urls')),
+	(r'^lookup/$', 'forum.views.post_lookup'),
 )
 
 if settings.DEBUG:

@@ -11,9 +11,12 @@ from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
+from django.utils import simplejson
+
 from flipt.settings import MEDIA_ROOT, MEDIA_URL
 from flipt.forum.models import *
-
+import csv
+from flipt.forum.models import Post
 
 class ProfileForm(ModelForm):
     class Meta:
@@ -50,7 +53,17 @@ def thread(request, pk):
     t = Thread.objects.get(pk=pk)
     return render_to_response("forum/thread.html", add_csrf(request, posts=posts, pk=pk, title=t.title,
                                                            forum_pk=t.forum.pk, media_url=MEDIA_URL))
-
+def post_lookup(request):
+	results = []
+	if request.method == "GET":
+		if request.GET.has_key(u'query'):
+			value = request.GET[u'query']
+			if len(value) > 2:
+				model_results = Post.objects.filter(body__icontains=value)
+				results = [ x.title for x in model_results ]
+	json = simplejson.dumps(results)
+	return HttpResponse(json, mimetype='application/json')
+		
 @login_required
 def profile(request, pk):
     """Edit user profile."""
