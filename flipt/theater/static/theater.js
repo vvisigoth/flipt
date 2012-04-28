@@ -1,25 +1,3 @@
-<html>
-	<head>
-	<title>Theater</title>	
-	<script type="text/javascript" src="/static/theater.js"> 
-	</script>
-	</head>
-<body>
-	<iframe name="coursevid" width="600" height="336" frameborder=0 src="{{ playlist.0.1 }}" onload="javascript:setDest(this.src);"></iframe>
-	<ul id="sidemenu">
-	{% for vid in playlist %}
-	<li><a href="{{ vid.1 }}" id="{{ vid.2 }}" target="coursevid" onclick="javascript:loadVid(this.href);">{{ vid.0 }}</a>
-		</li>
-
-	{% endfor %}
-	</ul>
-
-<ul>
-	<li><a href="{{ playlist.0.1 }}" id="previous" target="coursevid" onclick="javascript:loadVid(this.href);">Previous</a></li>
-	<li><a href="{{ playlist.1.1 }}" id="next" target="coursevid" onclick="javascript:loadVid(this.href);">Next</a></li>
-</ul>
-</body>
-<script type="text/javascript">
 	var plist = document.getElementById("sidemenu");
 	var playArray = plist.getElementsByTagName("a");
 	var i = 0;
@@ -65,5 +43,3 @@
 		vid.setAttribute("src", h);	
 	}	
 	
-</script>
-</html>
