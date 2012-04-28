@@ -134,6 +134,7 @@ INSTALLED_APPS = (
     'flipt.forum',
     'registration',
     'theater',
+    'haystack', 
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -166,3 +167,9 @@ LOGGING = {
         },
     }
 }
+
+HAYSTACK_SITECONF = 'flipt.site_search'
+
+HAYSTACK_SEARCH_ENGINE = 'whoosh'
+
+HAYSTACK_WHOOSH_PATH = os.path.join(SITE_ROOT, '/whoosh/index')

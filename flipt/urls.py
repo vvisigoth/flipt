@@ -9,6 +9,7 @@ urlpatterns = patterns('',
 	url(r'^admin/', include(admin.site.urls)),
 	(r'^accounts/', include('registration.urls')),
 	(r'^lookup/$', 'forum.views.post_lookup'),
+	(r'^search/', include('haystack.urls')),
 )
 
 if settings.DEBUG:
