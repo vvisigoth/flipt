@@ -53,7 +53,11 @@ class Post(models.Model):
 
     def __unicode__(self):
         return u"%s - %s - %s" % (self.creator, self.thread, self.title)
-
+    
+    def get_absolute_url(self):
+        """gonna make the absolute link go to thread"""
+        return "/forum/thread/%i/" % self.thread.id 
+    
     def short(self):
         return u"%s - %s\n%s" % (self.creator, self.title, self.created.strftime("%b %d, %I:%M %p"))
     short.allow_tags = True
