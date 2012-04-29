@@ -1,12 +1,13 @@
 import datetime
-from haystack.indexes import *
+from haystack import indexes
 from haystack import site
 from forum.models import Post
 
-class PostIndex(SearchIndex):
-    body = CharField(document=True, use_template=True)
-    author= CharField(model_attr='creator')
-    
+class PostIndex(indexes.SearchIndex):
+    body = indexes.CharField(document=True, use_template=True)
+    author= indexes.CharField(model_attr='creator')
+    content_auto = indexes.EdgeNgramField(model_attr='body')
+
     def index_queryset(self):
         return Post.objects.filter(created__lte=datetime.datetime.now())
 
