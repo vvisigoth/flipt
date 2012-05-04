@@ -1,3 +1,8 @@
+<html>
+    <head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    </head>
 {% block content %}
     <h2> Search </h2>
 
@@ -34,3 +39,18 @@
 
 </form>
 {% endblock %}
+
+
+    <script>
+        $(function() {
+            var testQueries = [
+                "This", 
+                "That", 
+                "The other thing"
+                ]
+        
+        $( "#id_q" ).autocomplete({
+            source: "../lookup/"
+        });
+    });
+</script>
